@@ -8,8 +8,8 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import MinMaxScaler
 from xgboost import XGBRegressor
 
-path = "D:\\pythonProject\\webscraping\\dubicars_Extracted_Raw_Data"
-data = pd.read_csv(path+"\\ml_cl_dubicars.csv")
+
+data = pd.read_csv("https://raw.githubusercontent.com/jinu043/vehicleprice_prediction/main/ml_cl_dubicars.csv")
 
 st.set_page_config(layout="wide")
 
