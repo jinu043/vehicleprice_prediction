@@ -72,8 +72,8 @@ target_col = "price"
 inputs = train_[inp_cols]
 targets = train_[target_col]
 
-xgb = XGBRegressor(n_jobs=-1, n_estimators=800, max_depth=30,
-                     random_state=10, learning_rate=0.2, subsample=0.8)
+xgb = XGBRegressor(n_jobs=-1, n_estimators=300,
+                     random_state=10)
 
 xgb.fit(inputs, targets)
 
