@@ -79,13 +79,16 @@ def load_model_fit():
     xgb = XGBRegressor(n_jobs=-1, n_estimators=400,
                      random_state=10)
     xgb.fit(inputs, targets)
+    return xgb
+
+model = xgb
 
 def single_input_prediction(df):
     input_sample = pd.DataFrame(df, index=[0])
     input_sample["mileage"] = min_max_sc.transform(np.array(input_sample["mileage"]).reshape(-1,1))
     input_sample[enc_cols] = encoder.transform(input_sample[cat_cols])
     inputs = input_sample[enc_cols+["mileage"]]
-    price_predicted = load_model_fit().predict(inputs)
+    price_predicted = xgb.predict(inputs)
     return np.ceil(price_predicted[0])
 st.subheader("Approximate Price of Vehicle")
 
