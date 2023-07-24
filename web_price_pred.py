@@ -74,7 +74,7 @@ targets = train_[target_col]
 
 xgb = XGBRegressor(n_jobs=-1, n_estimators=400,
                      random_state=10)
-@st.cache_resource
+@st.cache
 def load_model_fit():
     xgb = XGBRegressor(n_jobs=-1, n_estimators=400,
                      random_state=10)
