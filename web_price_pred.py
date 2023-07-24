@@ -75,8 +75,8 @@ targets = train_[target_col]
 
 @st.cache(hash_funcs={'xgboost.sklearn.XGBRegressor': id})
 def load_model_fit():
-    xgb = XGBRegressor(n_jobs=-1, n_estimators=400,
-                     random_state=10)
+    xgb = XGBRegressor(n_jobs=-1, n_estimators=800, max_depth=60,
+                     random_state=10, learning_rate=0.2, subsample=0.8)
     xgb.fit(inputs, targets)
     return xgb
 
