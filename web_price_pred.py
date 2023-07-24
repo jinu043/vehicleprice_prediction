@@ -72,9 +72,8 @@ target_col = "price"
 inputs = train_[inp_cols]
 targets = train_[target_col]
 
-xgb = XGBRegressor(n_jobs=-1, n_estimators=400,
-                     random_state=10)
-@st.cache
+
+@st.cache(hash_funcs={'xgboost.sklearn.XGBRegressor': id})
 def load_model_fit():
     xgb = XGBRegressor(n_jobs=-1, n_estimators=400,
                      random_state=10)
