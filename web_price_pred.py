@@ -30,9 +30,9 @@ def user_input_featutres():
     vehicle_name = st.sidebar.selectbox("Vehicle Name",options=data["vehicle_name"].unique().tolist(),)
     model = st.sidebar.selectbox("Model", options=data[data["vehicle_name"]==vehicle_name]["model"].unique().tolist())
     vehicle_type = st.sidebar.selectbox("Vehicle Type", options=data[data["model"]==model]["vehicle_type"].unique().tolist())
-    model_year = st.sidebar.selectbox("Vehicle Type", options=data[data["vehicle_type"]==vehicle_type]["model_year"].unique().tolist())
-    fuel_type = st.sidebar.selectbox("Fuel Type", options=data[(data["vehicle_type"]==vehicle_type)&(data["model_year"]==model_year)]["fuel_type"].unique().tolist())
-    spec = st.sidebar.selectbox("Spec", options=data[(data["vehicle_type"]==vehicle_type)&(data["model_year"]==model_year)&(data["fuel_type"]==fuel_type)]["spec"].unique().tolist())
+    model_year = st.sidebar.selectbox("Vehicle Type", options=data[(data["vehicle_type"]==vehicle_type)&(data["model"]==model)]["model_year"].unique().tolist())
+    fuel_type = st.sidebar.selectbox("Fuel Type", options=data[(data["vehicle_type"]==vehicle_type)&(data["model_year"]==model_year)&(data["model"]==model)]["fuel_type"].unique().tolist())
+    spec = st.sidebar.selectbox("Spec", options=data[(data["vehicle_type"]==vehicle_type)&(data["model_year"]==model_year)&(data["fuel_type"]==fuel_type)&(data["model"]==model)]["spec"].unique().tolist())
     mileage = st.sidebar.selectbox("Mileage", options=range(0,101))
     input_data = {
         "vehicle_name":vehicle_name,
